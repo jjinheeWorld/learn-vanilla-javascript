@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>안녕하세요</h1>
+    <input type="text" placeholder="문장을 입력하세요." />
+    <button>추가</button>
+    <p>입력한 문장이 밑으로 추가됩니다.</p>
+
+    <script>
+      // 0. 버튼 정보뭉치를 가져온다.
+      // 1. 버튼에 감지장치를 붙인다.
+      // 2. 함수를 만든다.
+      // 3. 함수 안에서 먼저 문장을 input 정보뭉치에서 가져온다.
+      // 4. 함수 안에서 가져온 문장을 p로 만들어 넣는다.
+      // 5. p를 body에 붙인다.
+
+      var 추가하기 = function () {
+        var 입력문장 = document.querySelector('input');
+        var 새문장 = document.createElement('p');
+        var 바디 = document.querySelector('body');
+        새문장.innerText = 입력문장.value;
+        바디.appendChild(새문장);
+      };
+
+      var 버튼 = document.querySelector('button');
+      버튼.addEventListener('click', 추가하기);
+    </script>
+  </body>
+</html>
