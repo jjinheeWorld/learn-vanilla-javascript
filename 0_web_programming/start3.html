@@ -6,7 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    <style></style>
+    <style>
+      h1 {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      .ani {
+        border: 2px solid lime;
+        transform: rotate(230deg);
+        transition: all 1s ease;
+      }
+      .point {
+        background-color: red;
+        color: white;
+        border-radius: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>안녕하세요</h1>
@@ -26,7 +41,9 @@
         var 입력문장 = document.querySelector('input');
         var 새문장 = document.createElement('p');
         var 바디 = document.querySelector('body');
+        입력문장.className = 'ani';
         새문장.innerText = 입력문장.value;
+        새문장.className = 'point';
         바디.appendChild(새문장);
       };
 
