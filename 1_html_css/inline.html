@@ -1,0 +1,154 @@
+<!-- inline 실습 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        background-color: black;
+        line-height: 200px;
+        color: lime;
+        font-size: 100px;
+        text-align: right;
+      }
+      .box > b {
+        font-size: 12px;
+        line-height: 12px;
+        vertical-align: top;
+      }
+
+      .box2 {
+        background-color: black;
+        line-height: 140px;
+        color: lime;
+        font-size: 70px;
+        text-align: center;
+      }
+      .box2 > b {
+        font-size: 12px;
+        line-height: 12px;
+        vertical-align: middle;
+      }
+
+      .box3 {
+        background-color: black;
+        line-height: 200px;
+        color: lime;
+        font-size: 100px;
+        text-align: center;
+      }
+      .box3 > b {
+        font-size: 12px;
+        line-height: 12px;
+      }
+      .box3 > b:first-child {
+        vertical-align: top;
+      }
+      .box3 > b:last-child {
+        vertical-align: bottom;
+      }
+
+      .box4 {
+        background-color: black;
+        line-height: 200px;
+        color: lime;
+        text-align: right;
+      }
+      .box4 > b {
+        font-size: 12px;
+        line-height: 12px;
+      }
+      .box4 > b:first-child {
+        vertical-align: middle;
+      }
+      .box4 > b:last-child {
+        vertical-align: bottom;
+      }
+
+      .page {
+        background-color: black;
+        line-height: 40px;
+        text-align: center;
+      }
+      .page > strong > a {
+        color: white;
+        text-decoration: none;
+      }
+      .page > a {
+        color: lime;
+      }
+
+      .page2 {
+        background-color: black;
+        line-height: 40px;
+        text-align: center;
+        font-size: 0; /* 개행으로 생긴 빈칸을 제거하기 위해 font-size: 0을 준 다음, 간격을 준다. */
+      }
+      .page2 > strong img {
+        vertical-align: middle;
+      }
+      .page2 > strong {
+        margin: 0 5px;
+      }
+      .page2 > a {
+        margin: 0 5px;
+        font-size: 16px;
+        color: lime;
+        text-decoration: none;
+        vertical-align: -6px;
+        line-height: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      kg
+      <b>안녕</b>
+    </div>
+    <br />
+    <div class="box2">
+      <b>안녕</b>
+      kg
+      <b>안녕</b>
+    </div>
+    <br />
+    <div class="box3">
+      <b>안녕</b>
+      kg
+      <b>안녕</b>
+    </div>
+    <br />
+    <div class="box4">
+      <b>안녕</b>
+      <b>안녕</b>
+    </div>
+    <br />
+    <div class="page">
+      <strong><a href="">prev</a></strong>
+      <a href="">1</a>
+      <a href="">2</a>
+      <a href="">3</a>
+      <a href="">4</a>
+      <a href="">5</a>
+      <strong><a href="">next</a></strong>
+    </div>
+    <br />
+    <div class="page2">
+      <strong>
+        <a href=""><img src="./images/ico_prev.svg" alt="이전" /></a>
+      </strong>
+      <a href="">1</a>
+      <a href="">2</a>
+      <a href="">3</a>
+      <a href="">4</a>
+      <a href="">5</a>
+      <strong>
+        <a href=""><img src="./images/ico_next.svg" alt="다음" /></a>
+      </strong>
+    </div>
+  </body>
+</html>
