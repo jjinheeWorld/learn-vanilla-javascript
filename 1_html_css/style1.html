@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 블록 박스의 margin 영역은 위아래로 다른 상자의 margin 영역과 겹칠 경우, 합쳐진다. (단, 좌우 방향으로는 일어나지 X) */
+      .box {
+        border: 4px solid black;
+        width: 432px;
+      }
+      p {
+        border: 4px solid black;
+        margin: 20px;
+        padding: 10px;
+      }
+
+      /* margin은 부모상자에 border나 padding이 없을 경우, 자식의 margin이 뚫고 나올 수 있다. (단, 좌우 방향으로는 일어나지 X) */
+      .box2 {
+        width: 432px;
+        background-color: yellow;
+        /* border-top: 1px solid red; */
+        /* padding-bottom: 1px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        possimus pariatur totam quas. Dignissimos porro consectetur sunt, non
+        sint soluta, necessitatibus neque eaque aut itaque quis cupiditate ex
+        obcaecati officia?
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        possimus pariatur totam quas. Dignissimos porro consectetur sunt, non
+        sint soluta, necessitatibus neque eaque aut itaque quis cupiditate ex
+        obcaecati officia?
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        possimus pariatur totam quas. Dignissimos porro consectetur sunt, non
+        sint soluta, necessitatibus neque eaque aut itaque quis cupiditate ex
+        obcaecati officia?
+      </p>
+    </div>
+    <br />
+    <div class="box2">
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo a
+        laboriosam itaque voluptatum distinctio assumenda nihil iste enim
+        corrupti quos, facilis alias temporibus ipsam expedita exercitationem
+        modi culpa repudiandae. Cum.
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo a
+        laboriosam itaque voluptatum distinctio assumenda nihil iste enim
+        corrupti quos, facilis alias temporibus ipsam expedita exercitationem
+        modi culpa repudiandae. Cum.
+      </p>
+    </div>
+  </body>
+</html>
