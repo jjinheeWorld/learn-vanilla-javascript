@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 예제 1
+      // 블록에서의 var 변수는 window에 있으므로 어디서든 접근가능
+      // global scope
+      if (10 < 100) {
+        var a = '코코몽';
+        console.log(a); // 코코몽
+      }
+      console.log(a); // 코코몽
+
+      // 블록에서의 let 변수는 블록 안에서만 사용 가능
+      // block scope
+      if (10 < 100) {
+        let b = '코코몽찌니';
+        console.log(b); // 코코몽찌니
+      }
+      // console.log(b); // 오류 발생❗️ 블록 밖에서 접근할 수 ❌
+
+      // 예제 2
+      var c = 10;
+      let d = 100; // script scope
+      if (c > 5) {
+        var c = 500;
+        let d = 500; // block scope
+        console.log(c); // 500
+        console.log(d); // 500
+      }
+      console.log(c); // 500
+      console.log(d); // 100
+    </script>
+  </body>
+</html>
