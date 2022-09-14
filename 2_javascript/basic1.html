@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 원시값 primitive
+      let variable = undefined;
+      let activeItem = null;
+      let num = 0; // number
+      let str = '코코몽'; // string
+      let 참 = true; // boolean
+      let 거짓 = false; // boolean
+
+      // 참조타입 referance
+      let obj = {
+        키: 155.1,
+        몸무게: '비밀',
+        나이: 27,
+        이름: {
+          lastName: 'jinhee',
+          firstName: 'lee',
+        },
+        좋아하는간식: ['김밥', '떡볶이', '그릭요거트'],
+      };
+      // obj.키 = 155.1
+      // obj.몸무게 = '비밀'
+
+      // 속성, 데이터에 접근하는 방법은 마침표 표기법과 대괄호 표기법이 있다.
+      console.log(obj.키); // 마침표 표기법
+      console.log(obj['키']); // 대괄호 표기법
+
+      let arr = [
+        '코코몽',
+        '코몽이',
+        '코코찌니',
+        { 이름: '이진희', 성별: '여자' },
+      ];
+      // arr[0] = '코코몽';
+      // arr[1] = '코몽이';
+      // arr[2] = '코코찌니';
+      // arr['hi'] = '코코몽 찌니';
+
+      // arr.push('코코몽');
+      // arr.push('코몽이');
+      // arr.push('코코찌니');
+
+      // obj의 키와 나이를 더하는 함수를 만들고 함수가 실행되면 콘솔로 출력해보자.
+      function sum() {
+        let result = obj.키 + obj.나이;
+        console.log(result); // 182.1
+      }
+
+      // obj의 키와 나이를 곱하는 함수를 만들고 함수가 실행되면 콘솔로 출력해보자.
+      // 단, 대괄호 표기법을 이용해야한다.
+      function mul() {
+        let result = obj['키'] * obj['나이'];
+        console.log(result); // 4187.7
+      }
+
+      // arr의 3번 방 사람의 이름과 성별을 콘솔에 출력하는 함수를 만들고 함수가 실행되면 콘솔로 출력해보자.
+      function jinheeHi() {
+        let result =
+          '이름은 ' + arr[3].이름 + ', 성별은 ' + arr[3]['성별'] + '입니다.'; // 이름은 이진희, 성별은 여자입니다.
+
+        console.log(result);
+      }
+    </script>
+  </body>
+</html>
