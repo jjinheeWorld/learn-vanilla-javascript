@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      fetch('https://jsonplaceholder.typicode.com/users')
+        .then((response) => response.json())
+        .then(할일);
+
+      function 할일(json) {
+        let mydata = json;
+        for (let i = 0; i < mydata.length; i++) {
+          console.log(`${mydata[i].name}(${mydata[i].username})`);
+        }
+      }
+
+      // 노드 생성 및 추가
+      const ulEl = document.createElement('ul');
+      const liEl = document.createElement('li');
+      liEl.innerText = '코코몽은 귀여워';
+
+      // const bodyEl = document.querySelector('body');
+      // const bodyEl = document.body;
+      // bodyEl.appendChild(ulEl);
+      // document.querySelector('body').appendChild(ulEl);
+
+      document.body.appendChild(ulEl);
+      ulEl.appendChild(liEl);
+    </script>
+  </body>
+</html>
