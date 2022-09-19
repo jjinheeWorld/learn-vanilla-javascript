@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .users {
+        border: 1px solid black;
+        padding: 23px 16px;
+      }
+      .users > li {
+        border-bottom: 1px solid #efefef;
+        padding: 10px 0;
+      }
+      .users > li > h4 {
+        font-size: 20px;
+        color: #535353;
+        margin-bottom: 6px;
+      }
+      .users > li > h4 > span {
+        color: #f3b541;
+      }
+      .users > li > address {
+        font-size: 12px;
+        color: #7e7e7e;
+      }
+      .users > li > address > dl > * {
+        display: inline;
+        font-style: normal;
+      }
+      .users > li > address > dl > dd {
+        margin-right: 20px;
+      }
+      .users > li > address > dl > dd > a {
+        color: #7e7e7e;
+      }
+
+      .users > li > address > dl > .city,
+      .users > li > address > dl > .city + dd {
+        color: #4cb3aa;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="users">
+      <li>
+        <h4>Leanne Graham<span>(Bret)</span></h4>
+        <address>
+          <dl>
+            <dt>이메일:</dt>
+            <dd><a href="mailto:Sincere@april.biz">Sincere@april.biz</a></dd>
+            <dt>URL:</dt>
+            <dd><a href="http://hildegard.org">http://hildegard.org</a></dd>
+            <dt class="city">City:</dt>
+            <dd>Gwenborough</dd>
+          </dl>
+        </address>
+      </li>
+    </ul>
+
+    <script>
+      fetch('https://jsonplaceholder.typicode.com/users')
+        .then((response) => response.json())
+        .then(할일);
+
+      function 할일(json) {
+        let mydata = json;
+        const ulEl = document.querySelector('ul');
+        document.body.appendChild(ulEl);
+
+        for (let i = 0; i < mydata.length; i++) {
+          ulEl.insertAdjacentHTML(
+            'beforeend',
+            `
+          <li>
+            <h4>${mydata[i].name}<span>(${mydata[i].username})</span></h4>
+            <address>
+              <dl>
+                <dt>이메일:</dt>
+                <dd><a href="mailto:${mydata[i].email}">${mydata[i].email}</a></dd>
+                <dt>URL: </dt>
+                <dd><a href="http://${mydata[i].website}">${mydata[i].website}</a></dd>
+                <dt class="city">City: </dt>
+                <dd>${mydata[i].address.city}</dd>
+              </dl>
+            </address>
+          </li>
+      `
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
