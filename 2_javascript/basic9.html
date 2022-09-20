@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열 다루기</title>
+  </head>
+  <body>
+    <script>
+      // 분할 기준으로 문자열 분할하기 split()
+      let str = 't_school_1';
+      console.log(str.split('_')); // ['t', 'school', '1']
+      console.log(str.split('_')[1]); // school
+
+      // 시작 인덱스에서 종료 인덱스까지의 문자열을 반환 substring()
+      console.log(str.substring(2, 8)); // school
+
+      // 특정 위치에서 가져오고 싶은 문자의 길이 만큼 문자들을 반환 substr()
+      console.log(str.substr(2, 6)); // school
+      // 문자의 길이를 생략하면 마지막 문자들까지 반환
+      console.log(str.substr(2)); // school_1
+
+      // 문자열의 길이 length
+      console.log(str.length); // 10
+
+      // 앞에서부터 훑으면서 해당문자의 번호를 알려줌 indexOf()
+      console.log(str.indexOf('_')); // 1
+
+      // 뒤에서부터 훑으면서 해당문자의 번호를 알려줌 lastIndexOf()
+      console.log(str.lastIndexOf('_')); // 8
+
+      // 문자열 양 끝의 공백을 제거해줌 trim()
+      let str1 = '     코코몽 코몽이 코코찌니  ';
+      console.log(str1.trim());
+
+      // 문자열을 대문자로 변환해줌 toUpperCase()
+      let str2 = 'Jinhee Lee';
+      console.log(str2.toUpperCase()); // JINHEE LEE
+
+      // 문자열을 소문자로 변환해줌 toLowerCase()
+      console.log(str2.toLowerCase()); // jinhee lee
+
+      // 기존 문자열에 추가하고 싶은 문자열과 결합해서 반환해줌 concat()
+      console.log(str2.concat('❤️')); // Jinhee Lee❤️
+
+      // 문자열에서 지정된 위치에 존재하는 문자를 찾아서 반환해줌 charAt()
+      console.log(str2.charAt(3)); // h
+
+      // split() 응용
+      let str3 = '코코몽, 코몽이, 코코찌니';
+      // str1을 배열로 만들고 싶을 때, split()으로 활용 가능
+      console.log(str3.split(',')); // ['코코몽', ' 코몽이', ' 코코찌니']
+    </script>
+  </body>
+</html>
