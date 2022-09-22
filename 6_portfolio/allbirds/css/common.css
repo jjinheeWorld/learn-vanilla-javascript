@@ -1,0 +1,37 @@
+@charset 'utf-8';
+
+/* 서체 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* reset */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+h1, h2, h3, h4, h5, h6 {font-size:16px;}
+h1, h2, h3, h4, h5, h6, body, div, p, dl, dt, dd, ul, ol, li, form, fieldset, blockquote, address, table, thead, tbody, tfoot, tr, td, caption {margin:0; padding:0;}
+li {list-style:none;}
+a {text-decoration: none;}
+
+/* layout */
+
+/* 광고 영역 */
+.wrap .ad {
+  background-color: rgb(31, 86, 76);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  letter-spacing: .5px;
+}
+.wrap .ad a {
+  color: white;
+  margin: 0 2px;
+  text-decoration: underline;
+}
