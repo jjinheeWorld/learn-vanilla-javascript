@@ -35,3 +35,152 @@ a {text-decoration: none;}
   margin: 0 2px;
   text-decoration: underline;
 }
+
+/* header */
+header {
+  background-color: yellow;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+header > h1.logo {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+}
+header > .logo a {
+ display: block;
+ width:120px; 
+ height:38px; 
+ font-size: 0; 
+ background: url(../images/allbirds-logo.svg) no-repeat;
+}
+header > nav.category {
+  position: absolute;
+  top: 9px;
+  left: 15px;
+}
+header > nav.category > .menu_btn {
+  box-sizing: border-box;
+  display: block;
+  width: 42px;
+  height: 42px;
+  padding: 11px 9px;
+}
+header > nav.category > .menu_btn > span {
+  font-size:0;
+  background-color: black;
+  display: block;
+  width:22px;
+  height:2px;
+  margin-bottom:6px;
+}
+header > nav.category > .menu_btn::before {
+  content: '';
+  background-color: black;
+  display: block;
+  width:22px;
+  height:2px;
+  margin-bottom:6px;
+}
+header > nav.category > .menu_btn::after {
+  content:'';
+  background-color: black;
+  display: block;
+  width:22px;
+  height:2px;
+}
+header > nav.category > ul {
+  display: none;
+}
+header > nav.util {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+}
+header > nav.util > ul > :not(.cart) {
+  display: none;
+}
+header > nav.util > ul > li.cart {
+  position: relative;
+}
+header > nav.util > ul > li.cart > a {
+  display: block;
+  font-size: 0;
+  width: 34px;
+  height: 31px;
+  background: url(../images/icon_cart.svg) no-repeat;
+}
+header > nav.util > ul > li.cart > span {
+  position: absolute;
+  top: 3px;
+  left: 16px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ~ 767 */
+@media screen and (max-width: 767px) {
+}
+/* 768 ~ 989 */
+@media screen and (min-width: 768px) and (max-width: 989px) {
+  
+}
+/* 990~ */
+@media screen and (min-width: 990px) {
+  header > nav.category {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  header > nav.category > ul {
+    display: block;
+  }
+  header > nav.category > .menu_btn {
+    display: none;
+  }
+  header > nav.category > ul > li {
+    float: left;
+    line-height: 12px;
+  }
+  header > nav.category > ul > li + li {
+    margin-left: 25px;
+  }
+  header > nav.category > ul > li > a {
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+    padding: 5px;
+  }
+  header > nav.util > ul > li {
+    float: left;
+  }
+  header > nav.util > ul > li + li {
+    margin-left: 25px;
+  }
+  header > nav.util > ul > li.text {
+    margin-top: 4px;
+  }
+  header > nav.util > ul > li.text > a {
+    font-size: 12px;
+    font-weight: 700;
+    color: black;
+    padding: 5px;
+  }
+  header > nav.util > ul > :not(.cart) {
+    display: block;
+  }
+  header > nav.util > ul > li.help {
+    margin-top: 5px;
+  }
+  header > nav.util > ul > li.help > a {
+    font-size: 0;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: url(../images/icon_help.svg) no-repeat;
+  }
+}
