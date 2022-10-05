@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 title="이것은 제목입니다.">DOM 연습</h1>
+    <ul>
+      <li><a href="https://www.google.com">구글</a></li>
+      <li><a href="https://www.naver.com">네이버</a></li>
+      <li><a href="https://www.daum.net/">다음</a></li>
+    </ul>
+    <script>
+      // getAttribute()
+      // 태그안의 원하는 속성의 값을 가져와서 문자열로 반환해준다.
+      const h1El = document.querySelector('h1');
+      h1El.getAttribute('title'); // 이것은 제목입니다.
+
+      // setAttribute()
+      // 원하는 문자열로 속성값을 지정해준다.
+      h1El.setAttribute('title', '이것은 제목입니당'); // 이것은 제목입니당
+
+      // getAttribute() 연습
+      // li마다 있는 a의 href 속성의 값을 가져와서 반복문을 통해 빈 객체안에 차례대로 담아보자.
+      let 검색포털 = {};
+      const aEls = document.querySelectorAll('a');
+      aEls.forEach((item) => {
+        검색포털[item.textContent] = item.getAttribute('href');
+      });
+    </script>
+  </body>
+</html>
