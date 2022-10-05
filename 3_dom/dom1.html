@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>코코몽</li>
+      <li>코코몽</li>
+      <li>코코몽</li>
+      <li>코코몽</li>
+      <li>코코몽</li>
+    </ul>
+    <script>
+      // querySelectorAll() 해당하는 모든 요소 노드를 배열 형태로 반환해준다.
+      // 그렇다고 배열은 ❌❌❌
+      // 반복문을 통해 코코몽 옆에 귀여워와 🥰, ❤️를 넣어보자.
+      const liEls = document.querySelectorAll('li');
+
+      // querySelectorAll()는 for of 와 forEach()를 사용할 수 있다.
+      // for of
+      for (let item of liEls) {
+        item.textContent += '귀여워';
+      }
+
+      // forEach()
+      liEls.forEach((item) => {
+        item.textContent += '🥰';
+      });
+
+      // for
+      for (let i = 0; i < liEls.length; i++) {
+        liEls[i].textContent += '❤️';
+      }
+    </script>
+  </body>
+</html>
