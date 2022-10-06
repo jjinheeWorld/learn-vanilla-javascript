@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>버튼</button>
+    <script>
+      // 특정 노드에서 childNodes속성을 사용하면 자신에게 속해있는 모든 노드 자식들을 배열 형태로 반환해준다.
+      // 자식 노드 리스트라고 보면 쉽다.
+      // button 노드는 자식으로 text 노드를 가지고 있다. 이때, text 노드는 버튼 이라는 글자를 가리킨다.
+      // text 노드는 공백 또한 text 노드로 만들어지기 때문에, 이 점을 유의해보자.
+      const btn = document.querySelector('button');
+      console.log(btn.textContent); // 버튼
+      // 모든 노드객체에 들어있는 nodeValue속성은 textContent와 마찬가지로 어떤 글자가 들어있는지 읽어 올 수 있으며, 설정할 수도 있는 속성이다.
+      console.log(btn.childNodes[0].nodeValue); // 버튼
+    </script>
+  </body>
+</html>
