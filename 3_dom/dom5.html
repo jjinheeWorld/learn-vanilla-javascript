@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>DOM 연습</h1>
+    <button>버튼</button>
+    <ul>
+      <!-- 주석 -->
+      <li><a href="https://www.google.com">구글</a></li>
+      <li><a href="https://www.naver.com">네이버</a></li>
+      <li><a href="https://www.daum.net/">다음</a></li>
+    </ul>
+    <script>
+      const ulEl = document.querySelector('ul');
+      const h1El = document.querySelector('h1');
+
+      // firstChild는 첫 번째 노드, lastChild는 마지막 노드를 반환해준다.
+      console.log(ulEl.firstChild); // #text
+      console.log(ulEl.lastChild); // #text
+
+      // nodeType
+      // 노드의 종류를 숫자로 구분한 값을 반환해준다.
+      console.log(ulEl.nodeType); // 1
+      console.log(ulEl.firstChild.nodeType); // 3
+      console.log(ulEl.firstChild.nextSibling.nodeType); // 8
+
+      // nextSibling은 동생노드를 반환해준다.
+      console.log(h1El.nextSibling); // #text
+      console.log(h1El.nextSibling.nextSibling); // <button>버튼</button>
+
+      // nextElementSibling은 동생노드 중 text 노드를 제외한 element 반환
+      console.log(h1El.nextElementSibling); // <button>버튼</button>
+
+      // parentNode는 부모노드를 반환해준다.
+      console.log(h1El.parentNode);
+    </script>
+  </body>
+</html>
