@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>버튼</button>
+    <a href="" class="clickBtn">클릭버튼</a>
+    <script>
+      const btn = document.querySelector('button');
+
+      // 대상요소객체에 addEventListener() 감지장치를 붙인 후
+      // 일어난 사건의 종류와 하고 싶은 일(함수)를 파라미터로 넣어 실행하면 감지장치가 작동하기 시작
+      // 사건(이벤트)이 발생할 때는 event 객체가 만들어져서 방금 일어난 사건에 대한 정보가 기록 되어짐
+      // event 객체는 감지장치를 통해서 할일을 등록하는 함수의 첫번째 파라미터로 전달 되도록 정해져있음.
+      btn.addEventListener('contextmenu', (ev) => {
+        console.log(ev); // 콘솔로 event 객체를 확인해보자.
+        // event 객체에는 기본 동작을 취소하는 preventDefault()가 있다.
+        ev.preventDefault();
+      });
+
+      const clickBtn = document.querySelector('.clickBtn');
+
+      clickBtn.addEventListener('click', (ev) => {
+        // <a>의 href속성에 빈칸일 경우는 새로고침을, #이 들어가있을 경우는 최상단으로 이동하는 기본 동작을 가지고 있다.
+        ev.preventDefault();
+        console.log('새로고침'); // 새로고침때문에 콘솔에 출력된 '새로고침'이 안보이는 것이다. 그러므로 기본 동작을 취소하는 기능을 가진 preventDefault()를 사용해보자.
+      });
+    </script>
+  </body>
+</html>
