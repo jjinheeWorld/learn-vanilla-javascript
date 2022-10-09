@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="photo_list">
+      <li><a href="#">건물</a></li>
+      <li><a href="#">커피</a></li>
+      <li><a href="#">불꽃놀이</a></li>
+      <li><a href="#">장미</a></li>
+    </ul>
+    <script>
+      const aEls = document.querySelectorAll('#photo_list a');
+      const ulEl = document.querySelector('#photo_list');
+
+      // 반복문을 통해 <a>에 감지장치를 붙인 후, 클릭할 때마다 클릭한 대상의 내용을 콘솔로 출력해보자.
+      // aEls.forEach((item) => {
+      //   item.addEventListener('click', (ev) => {
+      //     ev.preventDefault(); // <a>의 href속성에 #이 들어가있을 경우는 최상단으로 이동하는 기본 동작을 가지고 있다. 그러므로 기본 동작을 취소하는 기능을 가진 preventDefault()를 사용해야 한다.
+      //     console.log(ev.target.textContent);
+      //   });
+      // });
+
+      // 이번에는 반복문없이 <ul>에 감지장치를 붙인 후, 클릭할 때마다 클릭한 대상의 내용을 콘솔로 출력해보자.
+      ulEl.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        console.log(ev.target.textContent);
+      });
+    </script>
+  </body>
+</html>
