@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      strong {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border-radius: 15px;
+      }
+      .cart {
+        width: 400px;
+        height: 200px;
+        background-color: turquoise;
+        border-radius: 0 0 20px 20px;
+        margin: 20px 0;
+      }
+      .cart.enter {
+        background-color: pink;
+      }
+      .sum {
+        width: 380px;
+        padding: 10px;
+        background-color: plum;
+        color: white;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>쇼핑 바구니</h1>
+    <div class="products">
+      <strong draggable="true">샤넬</strong>
+      <strong draggable="true">디올</strong>
+      <strong draggable="true">미우미우</strong>
+      <strong draggable="true">루이비똥</strong>
+      <strong draggable="true">에르메스</strong>
+    </div>
+
+    <div class="cart"></div>
+    <div class="sum">합계 : 0만원</div>
+
+    <script>
+      const product = {
+        샤넬: 800,
+        디올: 500,
+        미우미우: 300,
+        루이비똥: 400,
+        에르메스: 1000,
+      };
+
+      const products = document.querySelectorAll('strong');
+      const cart = document.querySelector('.cart');
+      const sum = document.querySelector('.sum');
+
+      let buyItem;
+      let totalPrice = 0;
+      products.forEach((item) => {
+        // 시작할때할일
+        item.addEventListener('dragstart', (ev) => {
+          buyItem = ev.target;
+        });
+        // 도착해서할일
+        item.addEventListener('dragend', (ev) => {
+          cart.appendChild(buyItem);
+          console.log(buyItem.textContent);
+          if (buyItem.textContent in product) {
+            totalPrice += product[buyItem.textContent];
+            sum.textContent = `합계 : ${totalPrice}만원`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
