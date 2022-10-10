@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="photo_list">
+      <li><a href="#">건물</a></li>
+      <li><a href="#">커피</a></li>
+      <li><a href="#">불꽃놀이</a></li>
+      <li><a href="#">장미</a></li>
+    </ul>
+    <script>
+      const ulEl = document.querySelector('#photo_list');
+
+      // event 객체 전달 과정 : 버블링 (ul -> body)
+      ulEl.addEventListener('click', viewPhoto, false);
+      document.body.addEventListener('click', bodyFunc, false);
+
+      function viewPhoto(ev) {
+        ev.preventDefault();
+        // 전달된 이벤트 객체에 들어있는 stopPropagation()를 사용하면 캡처링이나 버블링되지 않도록 막을 수 있다.
+        ev.stopPropagation();
+        console.log(ev.target.textContent);
+      }
+
+      function bodyFunc(ev) {
+        ev.preventDefault();
+        console.log('body 클릭!'); // stopPropagation()으로 출력 X
+      }
+    </script>
+  </body>
+</html>
