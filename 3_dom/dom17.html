@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>이벤트</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      ul#photo_list {
+        border: 2px solid lime;
+        display: inline-block;
+        padding: 20px;
+      }
+      ul#photo_list > li {
+        border: 1px solid orange;
+        float: left;
+        padding: 20px;
+        position: relative;
+      }
+      ul#photo_list > li > a {
+        border: 1px solid black;
+        padding: 10px;
+      }
+      ul#photo_list ul {
+        display: none;
+        background-color: yellow;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100px;
+        padding: 10px;
+        z-index: 100;
+        border: 1px solid lime;
+      }
+      ul#photo_list ul.opened {
+        display: block;
+      }
+      ul#photo_list ul > li {
+        border: 1px solid orange;
+        padding: 5px;
+      }
+      ul#photo_list ul > li > a {
+        text-decoration: none;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="photo_list">
+      <li>
+        <a href="">건물</a>
+        <ul>
+          <li><a href="">남산타워</a></li>
+          <li><a href="">63빌딩</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">커피</a>
+        <ul>
+          <li><a href="">아메리카노</a></li>
+          <li><a href="">카페라테</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">불꽃놀이</a>
+        <ul>
+          <li><a href="">한강축제</a></li>
+          <li><a href="">금강축제</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">장미</a>
+        <ul>
+          <li><a href="">백장미</a></li>
+          <li><a href="">흑장미</a></li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+
+  <script>
+    const liEls = document.querySelectorAll('#photo_list > li');
+
+    liEls.forEach((item) => {
+      item.addEventListener('mouseenter', showMenu);
+      item.addEventListener('mouseleave', hideMenu);
+    });
+
+    function showMenu(ev) {
+      const targetUl = ev.target.querySelector('ul');
+      targetUl.classList.add('opened');
+    }
+    function hideMenu(ev) {
+      const targetUl = ev.target.querySelector('ul');
+      targetUl.classList.remove('opened');
+    }
+  </script>
+</html>
+<!-- 
+  mouseenter
+  mouseleave
+  장점 : 자식을 인식함
+  단점 : 원하는 노드에 리스너를 일일히 걸어야함, 정교하고 복잡한 동작에는 한계가 있음
+  
+  mouseover
+  mouseout
+  장점 : 정교하게 복잡한 동작을 구현할 수 있음
+  단점 : 자식을 인식하지 못함
+ -->
