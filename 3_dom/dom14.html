@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>나의 사진첩</h1>
+    <ul id="photo_list">
+      <li>
+        <a href="images/bigben.jpg" title="멋진 건물">건물</a>
+      </li>
+      <li>
+        <a href="images/coffee.jpg" title="향기로운 커피">커피</a>
+      </li>
+      <li>
+        <a href="images/fireworks.jpg" title="화려한 불꽃놀이">불꽃놀이</a>
+      </li>
+      <li>
+        <a href="images/rose.jpg" title="아름다운 장미">장미</a>
+      </li>
+    </ul>
+    <img id="placeholder" src="http://via.placeholder.com/400x200" />
+
+    <script>
+      // 각 목록의 a링크를 클릭하면 href로 걸려있는 이미지가 #placeholder에 나타나도록 만들어 보자.
+      const ulEl = document.querySelector('#photo_list');
+      const imgEl = document.querySelector('#placeholder');
+
+      ulEl.addEventListener('click', viewPhoto);
+
+      function viewPhoto(ev) {
+        ev.preventDefault();
+        imgEl.src = ev.target.href;
+      }
+    </script>
+  </body>
+</html>
