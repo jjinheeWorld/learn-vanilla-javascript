@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="photo_list">
+      <li><a href="#">건물</a></li>
+      <li><a href="#">커피</a></li>
+      <li><a href="#">불꽃놀이</a></li>
+      <li><a href="#">장미</a></li>
+    </ul>
+    <script>
+      const ulEl = document.querySelector('#photo_list');
+
+      ulEl.addEventListener('click', viewPhoto);
+
+      // removeEventListener()는 감지장치를 떼어내는 역할을 한다.
+      // removeEventListener()의 파라미터는 addEventListener()의 파라미터와 똑같이 작성해야 한다.
+      // ⚠️ 완전히 같은 함수를 사용해야한다.
+      if (true) {
+        ulEl.removeEventListener('click', viewPhoto);
+      }
+
+      function viewPhoto(ev) {
+        ev.preventDefault();
+        console.log(ev.target.textContent);
+      }
+    </script>
+  </body>
+</html>
