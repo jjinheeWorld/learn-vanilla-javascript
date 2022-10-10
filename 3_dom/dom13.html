@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="photo_list">
+      <li><a href="#">건물</a></li>
+      <li><a href="#">커피</a></li>
+      <li><a href="#">불꽃놀이</a></li>
+      <li><a href="#">장미</a></li>
+    </ul>
+    <script>
+      const ulEl = document.querySelector('#photo_list');
+
+      // event 객체 전달 과정 : 캡처링 (window -> body -> ul)
+      window.addEventListener('click', windowFunc, true);
+      document.body.addEventListener('click', bodyFunc, true);
+      document.body.addEventListener('click', bodyOtherFunc, true);
+      ulEl.addEventListener('click', viewPhoto, true);
+
+      function windowFunc(ev) {
+        ev.preventDefault();
+        console.log('window 클릭!');
+      }
+      function bodyFunc(ev) {
+        ev.preventDefault();
+        // 전달된 이벤트 객체에 들어있는 stopImmediatePropagation()를 사용하면 이벤트가 전파되는 것을 막을뿐아니라 같은 요소에 붙어있는 다른 감지 장치를 작동하지 않게 한다.
+        ev.stopImmediatePropagation();
+        console.log('body 클릭!');
+      }
+
+      function bodyOtherFunc(ev) {
+        ev.preventDefault();
+        console.log('나도 body 클릭~'); // stopImmediatePropagation()으로 출력 X
+      }
+      function viewPhoto(ev) {
+        ev.preventDefault();
+        console.log(ev.target.textContent); // // stopImmediatePropagation()으로 출력 X
+      }
+    </script>
+  </body>
+</html>
