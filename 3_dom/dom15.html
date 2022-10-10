@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      #photo_list {
+        display: flex;
+      }
+      #photo_list > li {
+        position: relative;
+      }
+      #photo_list li > a img {
+        width: 100px;
+        vertical-align: top;
+      }
+      #photo_list a.on::before {
+        content: '';
+        border: 3px solid lime;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>나의 사진첩</h1>
+    <ul id="photo_list">
+      <li>
+        <a href="images/bigben.jpg" title="멋진 건물">
+          <img src="images/bigben.jpg" />
+        </a>
+      </li>
+      <li>
+        <a href="images/coffee.jpg" title="향기로운 커피">
+          <img src="images/coffee.jpg" />
+        </a>
+      </li>
+      <li>
+        <a href="images/fireworks.jpg" title="화려한 불꽃놀이">
+          <img src="images/fireworks.jpg" />
+        </a>
+      </li>
+      <li>
+        <a href="images/rose.jpg" title="아름다운 장미">
+          <img src="images/rose.jpg" />
+        </a>
+      </li>
+    </ul>
+    <img id="placeholder" src="http://via.placeholder.com/400x200" />
+    <p id="desc">사진 설명입니다.</p>
+
+    <script>
+      // step1을 고쳐서 클릭한 a요소의 title 글자를 가져다가 #desc에 글자로 바꿔보자. 그리고 다음과 같은 화면처럼 작동하도록 만들어보자.
+      const ulEl = document.querySelector('#photo_list');
+      const aEls = document.querySelectorAll('#photo_list li a');
+      const imgEl = document.querySelector('#placeholder');
+      const descEl = document.querySelector('#desc');
+
+      ulEl.addEventListener('click', viewPhoto);
+
+      aEls.forEach((item) => {});
+
+      function viewPhoto(ev) {
+        ev.preventDefault();
+        const targetAEl = ev.target.parentNode;
+        console.log(ev.target);
+        if (targetAEl.tagName !== 'A') return;
+        imgEl.src = targetAEl.href;
+        // 클래스 'on' 전부 삭제
+        aEls.forEach((item) => {
+          item.classList.remove('on');
+        });
+        // 클릭한 a요소에 클래스 'on' 추가
+        targetAEl.classList.add('on');
+
+        // 클릭한 a요소의 title 글자를 가져다가 #desc에 글자로 바꿔보자.
+        descEl.textContent = targetAEl.title;
+      }
+    </script>
+  </body>
+</html>
