@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .ad {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        background-color: aqua;
+      }
+      header {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background-color: black;
+      }
+      header.on {
+        position: fixed;
+        top: 0;
+      }
+      section {
+        height: 600px;
+        border-bottom: 2px solid red;
+        overflow: hidden;
+      }
+      .item1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .item2 {
+        width: 100px;
+        height: 100px;
+        background-color: plum;
+      }
+      .item3 {
+        width: 100px;
+        height: 100px;
+        background-color: mediumspringgreen;
+      }
+      .item4 {
+        width: 100px;
+        height: 100px;
+        background-color: slateblue;
+      }
+      .item1.on {
+        transform: scale(10) rotate(220deg);
+        transition: all 1s ease;
+      }
+      .item2.on {
+        transform: translate(400px, 200px) rotate(220deg);
+        transition: all 1s ease;
+      }
+      .item3.on {
+        border-radius: 50px;
+        transform: translate(400px, 200px);
+        transition: all 1s ease;
+      }
+      .item4.on {
+        transform: translate(400px, 200px);
+        transition: all 1s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ad"></div>
+    <header></header>
+    <section></section>
+    <section><div class="item1"></div></section>
+    <section><div class="item2"></div></section>
+    <section><div class="item3"></div></section>
+    <section><div class="item4"></div></section>
+
+    <script>
+      window.addEventListener('scroll', scrollWork);
+      const htmlEl = document.querySelector('html');
+      const headerEl = document.querySelector('header');
+      const itemEl1 = document.querySelector('.item1');
+      const itemEl2 = document.querySelector('.item2');
+      const itemEl3 = document.querySelector('.item3');
+      const itemEl4 = document.querySelector('.item4');
+      function scrollWork() {
+        console.log(htmlEl.scrollTop);
+        if (htmlEl.scrollTop > 40) {
+          headerEl.classList.add('on');
+        } else {
+          headerEl.classList.remove('on');
+        }
+
+        if (htmlEl.scrollTop > 470) {
+          itemEl1.classList.add('on');
+        }
+        if (htmlEl.scrollTop > 1145) {
+          itemEl2.classList.add('on');
+        }
+        if (htmlEl.scrollTop > 1606) {
+          itemEl3.classList.add('on');
+        }
+        if (htmlEl.scrollTop > 2000) {
+          itemEl4.classList.add('on');
+        }
+      }
+    </script>
+  </body>
+</html>
