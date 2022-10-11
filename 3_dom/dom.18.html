@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>이벤트</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      ul#photo_list {
+        border: 2px solid lime;
+        display: inline-block;
+        padding: 20px;
+      }
+      ul#photo_list > li {
+        border: 1px solid orange;
+        float: left;
+        padding: 20px;
+        position: relative;
+      }
+      ul#photo_list > li > a {
+        border: 1px solid black;
+        padding: 10px;
+      }
+      ul#photo_list ul {
+        display: none;
+        background-color: yellow;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100px;
+        padding: 10px;
+        z-index: 100;
+        border: 1px solid lime;
+      }
+      ul#photo_list ul.opened {
+        display: block;
+      }
+      ul#photo_list ul > li {
+        border: 1px solid orange;
+        padding: 5px;
+      }
+      ul#photo_list ul > li > a {
+        text-decoration: none;
+        border: 1px solid black;
+      }
+
+      /* 768까지 */
+      @media screen and (max-width: 768px) {
+        body {
+          background-color: yellow;
+        }
+        ul#photo_list {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        ul#photo_list > li {
+          width: 25%;
+          box-sizing: border-box;
+        }
+        ul#photo_list > li > a {
+          display: block;
+          text-align: center;
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="photo_list">
+      <li>
+        <a href="">건물</a>
+        <ul>
+          <li><a href="">남산타워</a></li>
+          <li><a href="">63빌딩</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">커피</a>
+        <ul>
+          <li><a href="">아메리카노</a></li>
+          <li><a href="">카페라테</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">불꽃놀이</a>
+        <ul>
+          <li><a href="">한강축제</a></li>
+          <li><a href="">금강축제</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">장미</a>
+        <ul>
+          <li><a href="">백장미</a></li>
+          <li><a href="">흑장미</a></li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+
+  <script>
+    window.addEventListener('resize', checkSize);
+
+    checkSize();
+    function checkSize() {
+      const size = window.innerWidth;
+
+      if (size <= 768) {
+        mobileMenuStart();
+      } else {
+        desktopMenuStart();
+      }
+    }
+    // mobile
+    function mobileMenuStart() {
+      const ulEl = document.querySelector('#photo_list');
+      const liEls = document.querySelectorAll('#photo_list > li');
+      // desktop 이벤트 리스너 제거
+      liEls.forEach((item) => {
+        item.removeEventListener('mouseenter', showMenu);
+        item.removeEventListener('mouseleave', hideMenu);
+      });
+      // mobile 이벤트 리스너
+      ulEl.addEventListener('click', clickMenu);
+    }
+
+    // desktop
+    function desktopMenuStart() {
+      const ulEl = document.querySelector('#photo_list');
+      const liEls = document.querySelectorAll('#photo_list > li');
+      // mobile 이벤트 리스너 제거
+      ulEl.removeEventListener('click', clickMenu);
+      // desktop 이벤트 리스너
+      liEls.forEach((item) => {
+        item.querySelector('ul').classList.remove('opened');
+        item.addEventListener('mouseenter', showMenu);
+        item.addEventListener('mouseleave', hideMenu);
+      });
+    }
+
+    // mobile menu
+    function showMenu(ev) {
+      const targetUl = ev.target.querySelector('ul');
+      targetUl.classList.add('opened');
+    }
+    function hideMenu(ev) {
+      const targetUl = ev.target.querySelector('ul');
+      targetUl.classList.remove('opened');
+    }
+
+    // desktop menu
+    function clickMenu(ev) {
+      ev.preventDefault();
+      const subUlEls = document.querySelectorAll('#photo_list ul');
+      const targetUlEl = ev.target.parentNode.querySelector('ul');
+      if (ev.target.tagName !== 'A') return;
+
+      if (targetUlEl.classList.contains('opened')) {
+        targetUlEl.classList.remove('opened');
+      } else {
+        subUlEls.forEach((item) => {
+          item.classList.remove('opened');
+        });
+        targetUlEl.classList.add('opened');
+      }
+    }
+  </script>
+</html>
