@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>hello world!</title>
+<style>
+* {margin:0; padding:0}
+::selection {background-color: gold;}
+.form {width:600px; margin:50px auto 0}
+.form table {background-color:gainsboro; width:100%; margin-bottom:20px}
+.form table caption {padding:20px; font-size:24px;}
+.form table th,table td {padding:10px}
+.form table th {text-align: left}
+.form table tr.blank td > span {display:inline; }
+.form table td > span {display:none; margin-left:30px; font-size:12px; color:red}
+.form table tr.blank td > input {border:2px solid red}
+.form table input {width:200px; border-style:none; padding:10px; border-radius:5px;}
+.form input.btn {background-color: greenyellow; padding:5px 10px; font-size:16px; border-radius:3px;}
+</style>
+
+</head>
+<body>
+<div class="form">
+	<table>
+		<col style="width:20%"/>
+		<col/>
+		<caption>회원가입</caption>
+		<tbody>
+			<tr>
+				<th><label for="user_name">이름</label></th>
+				<td>
+					<input type="text" id="user_name" placeholder="본명을 입력해 주세요"/>
+					<span>이름을 입력해 주세요.</span>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="user_birthday">생년월일</label></th>
+				<td>
+					<input type="text" id="user_birthday" placeholder="yymmdd로 입력해 주세요."/>
+					<span>생년월일을 입력해 주세요.</span>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="user_phone">휴대폰 번호</label></th>
+				<td>
+					<input type="text" id="user_phone" placeholder="'-'를 제외해 주세요."/>
+					<span>휴대폰 번호를 입력해 주세요.</span>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="user_id">ID</label></th>
+				<td>
+					<input type="text" id="user_id" />
+					<span>ID를 입력해 주세요.</span>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="user_pw">PW</label></th>
+				<td>
+					<input type="password" id="user_pw" placeholder="영문,숫자 6자리 이상"/>
+					<span>PW를 입력해 주세요.</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div>
+		<input type="submit" value="확인" class="btn" />
+		<input type="button" value="취소" class="btn" />
+	</div>
+</div>
+<script>
+// 이번에는 tr에 black라는 이름을 룩업테이블 삼아 CSS를 이용해서 작업하도록 해봅시다.
+
+var submitBtn = document.querySelector("input[type=submit]");
+var cancleBtn = document.querySelector("input[type=button]");
+var trEls = document.querySelectorAll("table tr");
+var	inputEls = document.querySelectorAll("table input");
+
+submitBtn.addEventListener("click", checkUser);
+cancleBtn.addEventListener("click", cancleUser);
+
+
+</script>
+</body>
+</html>
