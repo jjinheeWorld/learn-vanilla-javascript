@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // Object.assign()
+      const target = { a: 1, b: 2 };
+      const source = { b: 4, c: 5 };
+      const result = Object.assign(target, source);
+      // target과 source를 병합, source의 b를 우선
+      console.log(result); // {a: 1, b: 4, c: 5}
+
+      // 얕은 복사1
+      const target2 = { a: 1, b: 2 };
+      const result2 = Object.assign({}, target2);
+      // 새로운 객체에 {}와 target2를 병합(복사)
+      console.log(result2); // {a: 1, b: 2}
+      console.log(result2 === target2); // false -> 참조값이 같지 ❌
+
+      // 얕은 복사의 한계
+      const target3 = {
+        a: 1,
+        b: { 이름: '코코몽' },
+      };
+      const result3 = Object.assign({}, target3);
+      result3.b.이름 = '코몽이';
+      // target3의 b의 이름이 코몽이로 바뀌었다. 깊은 복사는 되지 ❌
+      console.log(result3);
+      console.log(target3);
+
+      // 얕은 복사2
+      // 스프레드 연산자(전개 연산자)
+      const target4 = {
+        a: 1,
+        b: { 이름: '코코몽' },
+      };
+      const result4 = { ...target4 };
+      result4.b.이름 = '코몽이';
+      // target4의 b의 이름이 코몽이로 바뀌었다. 깊은 복사는 되지 ❌
+      console.log(result4);
+      console.log(target4);
+
+      // lodash 라이브러리
+      // _.cloneDeep(value)
+      const target5 = {
+        a: 1,
+        b: { 이름: '코코몽' },
+      };
+      // 깊은 복사
+      const result5 = _.cloneDeep(target5);
+      result5.b.이름 = '코몽이';
+      // target5의 b의 이름이 코코몽 그대로이다. 깊은 복사 ⭕️
+      console.log(result5);
+      console.log(target5);
+    </script>
+  </body>
+</html>
