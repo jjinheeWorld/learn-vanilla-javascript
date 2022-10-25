@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 자바스크립트는 객체를 다루는 언어이다.
+
+      // 일반객체
+      let a = { 이름: '이진희', 나이: 27 }; // 표현식
+      let A = new Object({ 이름: '이진희', 나이: 27 }); // 내부적으로는 메모리 구조 생성 (생성자 함수)
+      console.log(a); // {이름: '이진희', 나이: 27}
+      console.log(A); // {이름: '이진희', 나이: 27}
+
+      // 배열객체
+      let b = [1, 2, 3];
+      let B = new Array([1, 2, 3]);
+      console.log(b); // [1, 2, 3]
+      console.log(B); // [1, 2, 3]
+
+      // 문자열객체
+      let c = 'abcd';
+      let C = new String('abcd');
+      console.log(c); // abcd
+      console.log(C); // abcd
+
+      // 함수객체
+      let d = function (data1, data2) {
+        return data1 + data2;
+      };
+      let D = new Function('data1', 'data2', 'return data1 + data2');
+      console.dir(d);
+      console.dir(D);
+    </script>
+  </body>
+</html>
