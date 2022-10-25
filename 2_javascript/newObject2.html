@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Transport(name, wheel, engine, window, excel) {
+        this.name = name;
+        this.wheel = wheel;
+        this.engine = engine;
+        this.window = window;
+        this.excel = excel;
+        this.showSpec = function () {
+          console.log(
+            `${this.name}의 스펙 => 바퀴는 ${this.wheel}개, 엔진은 ${this.engine}, 창문은 ${this.window}개, 엑셀방식은 ${this.excel} 입니다.`
+          );
+        };
+      }
+      // Transport의 prototype
+      Transport.prototype.showSpec = function () {
+        console.log(
+          `${this.name}의 스펙 => 바퀴는 ${this.wheel}개, 엔진은 ${this.engine}, 창문은 ${this.window}개, 엑셀방식은 ${this.excel} 입니다.`
+        );
+      };
+
+      // new와 함께 Transport 함수를 실행하면 객체로 만들어짐 => prototype ⭕️
+      // 객체를 return하는 함수 => prototype ❌
+      let car = new Transport('자동차', 4, 'v8', 6, 'auto');
+      let boat = new Transport('배', 0, 'v6', 30, 'auto');
+      // car에 showSpec함수가 있으므로 prototype에서 찾지 않는다.
+      car.showSpec();
+      boat.showSpec();
+    </script>
+  </body>
+</html>
