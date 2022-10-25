@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // class
+      class Transport {
+        constructor(name, wheel, engine, window, excel) {
+          this.name = name;
+          this.wheel = wheel;
+          this.engine = engine;
+          this.window = window;
+          this.excel = excel;
+        }
+        // constructor() 안에 선언한 항목들은 파라미터를 통하여 정보를 전달받을 수 있다.
+        // 그럴 필요가 없을 때에는 constructor()밖에 이름과 값을 선언한다.
+        material = 'steel';
+
+        // ‘#’붙이면 내부에서만 사용하고 외부에서는 읽을 수 없는 private 항목을 만들 수 있다.
+        #sn = '12ke9300';
+
+        // static은 class이름으로 접근 가능한 항목을 만든다. 그렇기 때문에 인스턴스를 생성하지 않아도 사용할 수 있다.
+        static manual = 'new와 함께 실행해서 사용하면 된다.';
+
+        // static에도 ‘#’을 붙일 수 있다.
+        // ‘#’붙이면 내부에서만 사용하고 외부에서는 읽을 수 없는 private 항목을 만들 수 있다.
+        static #crew = 3;
+
+        // function을 쓰지 ❌
+        showSpec() {
+          console.log(
+            `${this.name}의 스펙 => 바퀴는 ${this.wheel}개, 엔진은 ${this.engine}, 창문은 ${this.window}개, 엑셀방식은 ${this.excel} 입니다.`
+          );
+        }
+      }
+
+      // class도 prototype ⭕️
+      Transport.prototype.showSpec = function () {
+        console.log(
+          `${this.name}의 스펙 => 바퀴는 ${this.wheel}개, 엔진은 ${this.engine}, 창문은 ${this.window}개, 엑셀방식은 ${this.excel} 입니다.`
+        );
+      };
+
+      let plane = new Transport('비행기', 3, 'v200', 30, 'auto');
+      plane.material = '플라스틱';
+      console.log(plane);
+      console.log(plane.sn); // undefined
+      console.log(Transport.manual);
+      console.log(Transport.crew); // undefined
+      plane.showSpec();
+    </script>
+  </body>
+</html>
